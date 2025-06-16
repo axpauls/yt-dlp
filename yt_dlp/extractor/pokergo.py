@@ -78,7 +78,7 @@ class PokerGoIE(PokerGoBaseIE):
             'season_number': series_json.get('season'),
             'episode_number': series_json.get('episode_number'),
             'series': try_get(series_json, lambda x: x['tag']['name']),
-            'url': f'https://cdn.jwplayer.com/v2/media/{v_id}',
+            'url': v_id if v_id.startswith('http') else f'https://cdn.jwplayer.com/v2/media/{v_id}',
         }
 
 
